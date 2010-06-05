@@ -4,7 +4,7 @@
 # Copyright 2010, yetist <wuxiaotian@reflag-linux.com>
 
 $modversion['name'] = _MI_FLYSPRAY_NAME;
-$modversion['version'] = "0.9.9.6";
+$modversion['version'] = "0996.1";
 $modversion['description'] = _MI_FLYSPRAY_DESC;
 $modversion['credits'] = "yetist <wuxiaotian@redflag-linux.com>";
 $modversion['help'] = "no help yet";

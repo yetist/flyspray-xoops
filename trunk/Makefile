@@ -1,27 +1,37 @@
-
 NAME = flyspray
 VERSION = 0.9.9.6
-
-all:
+modver = `php -r 'error_reporting(0);include "addons/xoops_version.php";echo "$$modversion['version']";'`
+distdir = xoops-mod-$(NAME)-$(modver)
 
 fetch:
-	@if [ ! -d distfiles ];then \
+	@echo Downloading the $(NAME)-$(VERSION).zip ...; \
+		if [ ! -d distfiles ];then \
 		mkdir distfiles; \
-		wget http://flyspray.org/$(NAME)-$(VERSION).zip; \
+		wget -q http://flyspray.org/$(NAME)-$(VERSION).zip; \
 		cd distfiles; unzip -q ../$(NAME)-$(VERSION).zip; \
 		cd ..; \
 		rm $(NAME)-$(VERSION).zip; \
 		fi
 
 dist: fetch
-	@if [ -d xoops-mod-$(NAME)-$(VERSION) ]; \
-		then rm -rf xoops-mod-$(NAME)-$(VERSION); \
+	@echo Creating $(distdir).tar.gz ...; \
+		if [ -d $(distdir) ]; \
+		then rm -rf $(distdir); \
 		fi; \
-		cp -r distfiles xoops-mod-$(NAME)-$(VERSION); \
-		cp -r addons/* xoops-mod-$(NAME)-$(VERSION); \
-		cd xoops-mod-$(NAME)-$(VERSION); \
+		cp -r distfiles $(distdir); \
+		rm -rf $(distdir)/setup; \
+		cp -r addons/* $(distdir); \
+		cd $(distdir); \
 		for i in ../patches/*;do \
-		patch -p1  < $$i; \
+		patch -s -p1  < $$i; \
 		done; \
 		cd ..; \
-		tar -zcf xoops-mod-$(NAME)-$(VERSION).tar.gz xoops-mod-$(NAME)-$(VERSION)
+		tar -zcf $(distdir).tar.gz $(distdir); \
+		rm -rf $(distdir); \
+		echo $(distdir).tar.gz is ready.
+release: dist
+	googlecode_upload.py -s $(distdir).tar.gz -p flyspray-xoops -u yetist@gmail.com -l Featured,Type-Source,OpSys-Linux $(distdir).tar.gz
+
+clean:
+	@[ -d distfiles ] && rm -rf distfiles
+	@[ -f $(distdir).tar.gz ] && rm -f $(distdir).tar.gz
