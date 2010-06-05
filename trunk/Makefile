@@ -14,9 +14,14 @@ fetch:
 		fi
 
 dist: fetch
-	cp -r distfiles xoops-mod-$(NAME)-$(VERSION); \
+	@if [ -d xoops-mod-$(NAME)-$(VERSION) ]; \
+		then rm -rf xoops-mod-$(NAME)-$(VERSION); \
+		fi; \
+		cp -r distfiles xoops-mod-$(NAME)-$(VERSION); \
 		cp -r addons/* xoops-mod-$(NAME)-$(VERSION); \
 		cd xoops-mod-$(NAME)-$(VERSION); \
 		for i in ../patches/*;do \
 		patch -p1  < $$i; \
-		done
+		done; \
+		cd ..; \
+		tar -zcf xoops-mod-$(NAME)-$(VERSION).tar.gz xoops-mod-$(NAME)-$(VERSION)
