@@ -1,8 +1,6 @@
-diff --git a/header.php b/header.php
-index 2c3c592..aee5ee5 100644
---- a/header.php
-+++ b/header.php
-@@ -15,13 +15,13 @@ if (!$conf) {
+--- distfiles/header.php	2007-07-18 22:20:38.000000000 +0800
++++ ./header.php	2010-06-16 11:36:10.529655369 +0800
+@@ -15,13 +15,13 @@
  
  require_once BASEDIR . '/includes/class.gpc.php';
  require_once BASEDIR . '/includes/utf8.inc.php';

@@ -1,0 +1,14 @@
+--- distfiles/themes/Bluey/theme.css	2008-04-06 14:59:08.000000000 +0800
++++ ./themes/Bluey/theme.css	2010-06-16 16:04:34.731378194 +0800
+@@ -437,9 +437,9 @@
+ /* div#showtask contains the form to search for a specific task number */
+ div#showtask {
+ 	text-align:right;
+-	position:absolute;
++	position:relative;
+ 	right:0.5em;
+-	top:0.5em;
++	top:3.5em;
+ }
+ 
+ /* The paragraph containing the search form */

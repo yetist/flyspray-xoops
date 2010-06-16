@@ -1,0 +1,11 @@
+--- distfiles/templates/index.tpl	2008-02-08 20:05:20.000000000 +0800
++++ ./templates/index.tpl	2010-06-16 15:53:58.725739492 +0800
+@@ -24,7 +24,7 @@
+ 
+         <input type="hidden" name="project" value="{Get::num('project', $proj->id)}" />
+         <?php if (!$user->isAnon()): ?>
+-        <span class="save_search"><label for="save_search" id="lblsaveas">{L('saveas')}</label>
++        <span class="save_search"><label class="inline" for="save_search" id="lblsaveas">{L('saveas')}</label>
+         <input class="text" type="text" value="{Get::val('search_name')}" id="save_search" name="search_name" size="15" />
+         &nbsp;<button onclick="savesearch('{!Filters::escapeqs($_SERVER['QUERY_STRING'])}', '{#$baseurl}', '{L('saving')}')" type="button">{L('OK')}</button>
+         </span>

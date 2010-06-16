@@ -4,7 +4,7 @@
 # Copyright 2010, yetist <wuxiaotian@reflag-linux.com>
 
 $modversion['name'] = _MI_FLYSPRAY_NAME;
-$modversion['version'] = "0996.1";
+$modversion['version'] = "0.96";
 $modversion['description'] = _MI_FLYSPRAY_DESC;
 $modversion['credits'] = "yetist <wuxiaotian@redflag-linux.com>";
 $modversion['help'] = "no help yet";
@@ -49,16 +49,16 @@ $modversion['tables'][26] = "flyspray_votes";
 // Admin things
 $modversion['hasAdmin'] = 0;
 
-// Menu
-$modversion['hasMain'] = 1;
-$modversion['sub'][1]['name'] = _MI_FLYSPRAY_SMNAME1;
-$modversion['sub'][1]['url'] = "view_all_bug_page.php";
-$modversion['sub'][2]['name'] = _MI_FLYSPRAY_SMNAME2;
-$modversion['sub'][2]['url'] = "bug_report_page.php";
+#// Menu
+#$modversion['hasMain'] = 1;
+#$modversion['sub'][1]['name'] = _MI_FLYSPRAY_SMNAME1;
+#$modversion['sub'][1]['url'] = "view_all_bug_page.php";
+#$modversion['sub'][2]['name'] = _MI_FLYSPRAY_SMNAME2;
+#$modversion['sub'][2]['url'] = "bug_report_page.php";
 
-// Search
-$modversion['hasSearch'] = 1;
-$modversion['search']['file'] = "include/search.inc.php";
-$modversion['search']['func'] = "mantis_search";
+#// Search
+#$modversion['hasSearch'] = 1;
+#$modversion['search']['file'] = "include/search.inc.php";
+#$modversion['search']['func'] = "mantis_search";
 
 ?>

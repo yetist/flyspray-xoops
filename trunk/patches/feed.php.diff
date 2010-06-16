@@ -1,0 +1,10 @@
+--- distfiles/feed.php	2008-02-09 00:40:52.000000000 +0800
++++ ./feed.php	2010-06-16 16:13:07.048831143 +0800
+@@ -5,6 +5,7 @@
+ 
+ define('IN_FS', true);
+ define('IN_FEED', true);
++include_once "../../mainfile.php";
+ 
+ require_once(dirname(__FILE__).'/header.php');
+ $page = new FSTpl();

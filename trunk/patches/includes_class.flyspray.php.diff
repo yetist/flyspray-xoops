@@ -1,0 +1,55 @@
+--- distfiles/includes/class.flyspray.php	2009-05-01 14:12:42.000000000 +0800
++++ ./includes/class.flyspray.php	2010-06-16 14:35:53.022746479 +0800
+@@ -70,7 +70,7 @@
+     {
+         global $db;
+ 
+-        $this->startSession();
++        #$this->startSession();
+ 
+         $res = $db->Query('SELECT pref_name, pref_value FROM {prefs}');
+ 
+@@ -588,6 +588,43 @@
+             return crypt($password);
+         }
+     } // }}}
++
++    function sync_user_info()
++    {
++	    global $db;
++	    global $xoopsUser, $xoopsModule;
++	    global $fs;
++
++        $result = $db->Query("SELECT * 
++                           FROM {users} u 
++			   WHERE  u.user_id =".$xoopsUser->getVar('uid'));
++        $auth_details = $db->FetchRow($result);
++        if($auth_details === false) {
++		$db->Query("INSERT INTO {users} VALUES (?,?,?,?,?,?,0,1,1,'','','25',0,0,0,0,0)",
++		array($xoopsUser->getVar('uid'), 
++		$xoopsUser->getVar('uname'),
++		$xoopsUser->getVar('pass'),
++		$xoopsUser->getVar('name'),
++		$xoopsUser->getVar('email'),
++		$xoopsUser->getVar('email')));
++
++		if ($xoopsUser->isAdmin($xoopsModule->mid()))
++		{
++			$db->Query("INSERT INTO {users_in_groups} (user_id, group_id) VALUES (?,1)",
++				array($xoopsUser->getVar('uid')));
++		}else{
++			$db->Query("INSERT INTO {users_in_groups} (user_id, group_id) VALUES (?,?)",
++				array($xoopsUser->getVar('uid'), $fs->prefs['anon_group']));
++		}
++	}else{
++		$db->Query('UPDATE {users} SET user_name = ?, user_pass = ?, real_name = ?, email_address=?,account_enabled = 1, login_attempts = 0 WHERE user_id = ?', 
++		array($xoopsUser->getVar('uname'), 
++		$xoopsUser->getVar('pass'),
++		$xoopsUser->getVar('name'),
++		$xoopsUser->getVar('email'),
++		$xoopsUser->getVar('uid')));
++	}
++    }
+     // {{{
+     /**
+      * Check if a user provided the right credentials
