@@ -1,0 +1,21 @@
+--- distfiles/javascript/callbacks/deletesearches.php	2007-02-04 08:11:48.000000000 +0800
++++ ./javascript/callbacks/deletesearches.php	2010-06-16 19:58:49.769967698 +0800
+@@ -3,15 +3,14 @@
+     This script is the AJAX callback that deletes a user's saved search
+ */
+ 
++include_once "../../../../mainfile.php";
+ define('IN_FS', true);
+ 
+ require_once('../../header.php');
+ $baseurl = dirname(dirname($baseurl)) .'/' ;
+ 
+-if (Cookie::has('flyspray_userid') && Cookie::has('flyspray_passhash')) {
+-    $user = new User(Cookie::val('flyspray_userid'));
+-    $user->check_account_ok();
+-    
++if (is_object($xoopsUser)) {
++    $user = new User($xoopsUser->getVar('uid'));
+     $db->Query('DELETE FROM {searches} WHERE id = ? AND user_id = ?', array(Get::num('id'), $user->id));
+ }
+ 

@@ -1,0 +1,54 @@
+--- distfiles/lang/zh_cn.php	2007-02-04 08:11:40.000000000 +0800
++++ ./lang/zh_cn.php	2010-06-16 20:18:51.639864057 +0800
+@@ -381,7 +381,7 @@
+ 我丢失了 Flyspray 口令 ',
+ 'lostpwmsg2'              => ', 请提供我一个新口令.                   
+  
+-Username: ',
++用户名: ',
+ 'regards'                 => '        
+  
+ 敬礼,',
+@@ -767,9 +767,12 @@
+ 'error5'                  => '这个用户不存在.',
+ 'error6'                  => '无效的管理员区域.',
+ 'error7'                  => '登录失败(用户名或者口令错误)!',
++'error71'                 => 'Account locked for %d minutes due to too many failed login attempts!',
+ 'error8'                  => '您没有用户名或者口令.',
+ 'error9'                  => '任务不存在或者没有权限查看这个任务.',
+ 'error10'                 => '任务不存在或者没有权限查看这个任务.',
++'error101'                => 'You have no permission to view this task.',
++'error102'                => 'You have no permission to view this task, logging in might help.',
+ 'error11'                 => '没有编辑这个批注的权限.',
+ 'error12'                 => '无效的激活码!请核实一下?',
+ 'error13'                 => '匿名用户没有个人资料.',
+@@ -804,8 +807,26 @@
+ 'ordertip'                => '条目的顺序会在列表中显示',
+ 'showtip'                 => '在列表中显示这一条',
+ 'deletetip'               => '从列表中删除这一条',
+-'csvexport'               => 'CSV 输出',
+ 'del'                     => '删除',
++'request1'                => 'A task closure has been requested.',
++'request2'                => 'A request to re-open the task has been made.',
++'allpriorities'           => 'All Priorities',
++'noroadmap'               => 'No roadmap available (no project specific "future" versions exist).',
++'expand'                  => 'Expand',
++'collapse'                => 'Collapse',
++'expandall'               => 'Expand all',
++'collapseall'             => 'Collapse all',
++'minpwsize'               => 'Minimum password size is 5 chars',
++'passwordtoosmall'        => 'Password size too small.',
++'accountwaslocked'        => 'Your account had been locked due to too many failed login attempts.',
++'failedattempts'          => 'There were %d failed login attempts.',
++'groupnotexist'           => 'Selected group does not exist in this project.',
++'searchindetails'         => 'Search details',
++'showasassignees'         => 'Show as assignees',
++'find'                    => '查找',
++'tls'                     => 'TLS',
++'isadmin'                 => '管理员',
++'addvotes'                => '增加投票',
+ ); 
+ 
+-?>
+\ 文件尾没有 newline 字符
++?>

@@ -6,11 +6,11 @@
       ; You should consider putting this file somewhere that isn't accessible using
       ; a web browser, and editing header.php to point to wherever you put this file.
 [database]
-dbtype = "mysql"					; Type of database ("mysql", "mysqli" or "pgsql" are currently supported)
-dbhost = "localhost"					; Name or IP of your database server
-dbname = "flyspray"					; The name of the database
-dbuser = "root"						; The user to access the database
-dbpass = ""						; The password to go with that username above
+;dbtype = "mysql"					; Type of database ("mysql", "mysqli" or "pgsql" are currently supported)
+;dbhost = "localhost"					; Name or IP of your database server
+;dbname = "flyspray"					; The name of the database
+;dbuser = "root"						; The user to access the database
+;dbpass = ""						; The password to go with that username above
 dbprefix = "flyspray_"					; The prefix to the Flyspray tables
 
 
@@ -23,7 +23,7 @@ dot_format = "png" 					; "png" or "svg"
 address_rewriting = "0"					; Boolean. 0 = off, 1 = on.
 reminder_daemon = "0"					; Boolean. 0 = off, 1 = on (cron job), 2 = on (PHP).
 doku_url = "http://en.wikipedia.org/wiki/"      	; URL to your external wiki for [[dokulinks]] in FS
-syntax_plugin = "none"                               	; Plugin name for Flyspray's syntax (use any non-existing plugin name for deafult syntax)
+syntax_plugin = "dokuwiki"                              ; Plugin name for Flyspray's syntax (use any non-existing plugin name for deafult syntax)
 update_check = "1"                               	; Boolean. 0 = off, 1 = on.
 
 

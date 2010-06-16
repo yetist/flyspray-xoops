@@ -1,0 +1,22 @@
+--- distfiles/javascript/callbacks/gethistory.php	2007-02-04 08:11:48.000000000 +0800
++++ ./javascript/callbacks/gethistory.php	2010-06-16 19:46:55.093372871 +0800
+@@ -4,6 +4,7 @@
+     returns it for HTML display in a page.
+ */
+ 
++include_once "../../../../mainfile.php";
+ define('IN_FS', true);
+ 
+ header('Content-type: text/html; charset=utf-8');
+@@ -13,9 +14,8 @@
+ $baseurl = dirname(dirname($baseurl)) .'/' ;
+ 
+ // Initialise user
+-if (Cookie::has('flyspray_userid') && Cookie::has('flyspray_passhash')) {
+-    $user = new User(Cookie::val('flyspray_userid'));
+-    $user->check_account_ok();
++if (is_object($xoopsUser)) {
++    $user = new User($xoopsUser->getVar('uid'));
+ }
+ 
+ // Check permissions

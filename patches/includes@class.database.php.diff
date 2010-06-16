@@ -1,0 +1,11 @@
+--- distfiles/includes/class.database.php	2009-04-19 10:22:30.000000000 +0800
++++ ./includes/class.database.php	2010-06-16 19:21:09.421027541 +0800
+@@ -18,7 +18,7 @@
+ 
+ require_once dirname(dirname(__FILE__)) . '/adodb/adodb.inc.php';
+ 
+-class Database
++class FSDatabase
+ {
+     /**
+      * Table prefix, usually flyspray_

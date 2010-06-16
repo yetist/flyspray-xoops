@@ -1,0 +1,10 @@
+--- distfiles/includes/class.tpl.php	2008-04-06 14:59:08.000000000 +0800
++++ ./includes/class.tpl.php	2010-06-16 20:06:15.166594964 +0800
+@@ -3,6 +3,7 @@
+ if (!defined('IN_FS')) {
+     die('Do not access this file directly.');
+ }
++date_default_timezone_set("Asia/Chongqing");
+ 
+ class Tpl
+ {
