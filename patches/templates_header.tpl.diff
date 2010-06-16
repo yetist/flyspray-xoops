@@ -1,0 +1,32 @@
+--- distfiles/templates/header.tpl	2007-03-24 14:26:36.000000000 +0800
++++ ./templates/header.tpl	2010-06-16 16:03:52.214712008 +0800
+@@ -52,6 +52,14 @@
+ 
+   <div id="container">
+     <!-- Remove this to remove the logo -->
++      <div id="showtask">
++        <form action="{$baseurl}index.php" method="get">
++          <div>
++            <button type="submit">{L('showtask')} #</button>
++            <input id="taskid" name="show_task" class="text" type="text" size="10" accesskey="t" />
++          </div>
++        </form>
++      </div>
+     <h1 id="title"><a href="{$baseurl}">{$proj->prefs['project_title']}</a></h1>
+ 
+     <?php $this->display('links.tpl'); ?>
+@@ -65,14 +73,6 @@
+     <?php endif; ?>
+ 
+     <div id="content">
+-      <div id="showtask">
+-        <form action="{$baseurl}index.php" method="get">
+-          <div>
+-            <button type="submit">{L('showtask')} #</button>
+-            <input id="taskid" name="show_task" class="text" type="text" size="10" accesskey="t" />
+-          </div>
+-        </form>
+-      </div>
+ 
+       <div class="clear"></div>
+       <?php $show_message = array('details', 'index', 'newtask', 'reports', 'depends');

@@ -1,0 +1,13 @@
+--- distfiles/templates/loginbox.tpl	2009-04-18 12:25:04.000000000 +0800
++++ ./templates/loginbox.tpl	2010-06-16 15:38:24.469043505 +0800
+@@ -1,4 +1,4 @@
+-
++<!--
+ <form id="login" action="{$baseurl}index.php?do=authenticate" method="post">
+ <div>
+   <label for="lbl_user_name">{L('username')}</label>
+@@ -33,3 +33,4 @@
+   </span>
+ </div>
+ </form>
++-->

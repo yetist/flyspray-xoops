@@ -1,7 +1,7 @@
 <?php
 
-define("_PM_MI_NAME", "站内短信");
-define("_PM_MI_DESC", "用户之间的私人消息模块");
+define("_MI_FLYSPRAY_NAME", "Flyspray");
+define("_MI_FLYSPRAY_DESC", "Bug 跟踪系统");
 
 define("_PM_MI_INDEX", "模块首页");
 define("_PM_MI_PRUNE", "清理数据");

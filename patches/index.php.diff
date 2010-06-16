@@ -1,0 +1,35 @@
+--- distfiles/index.php	2009-04-18 12:32:30.000000000 +0800
++++ ./index.php	2010-06-16 16:11:22.378003580 +0800
+@@ -5,7 +5,10 @@
+    in.  Mostly what it does is check the user permissions
+    to see what they have access to.
+ */
++
++include_once "../../mainfile.php";
+ define('IN_FS', true);
++include XOOPS_ROOT_PATH . '/header.php';
+ 
+ require_once(dirname(__FILE__).'/header.php');
+ 
+@@ -30,9 +33,9 @@
+ 
+ 
+ /* permission stuff */
+-if (Cookie::has('flyspray_userid') && Cookie::has('flyspray_passhash')) {
+-    $user = new User(Cookie::val('flyspray_userid'), $proj);
+-    $user->check_account_ok();
++if (is_object($xoopsUser)) {
++    $fs->sync_user_info();
++    $user = new User($xoopsUser->getVar('uid'), $proj);
+     $user->save_search($do);
+ } else {
+     $user = new User(0, $proj);
+@@ -165,5 +168,6 @@
+     }
+     unset($_SESSION['ERROR'], $_SESSION['SUCCESS']);
+ }
++        include XOOPS_ROOT_PATH . "/footer.php";
+ 
+-?>
+\ 文件尾没有 newline 字符
++?>
