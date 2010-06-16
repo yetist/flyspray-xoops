@@ -1,7 +1,8 @@
 NAME = flyspray
 VERSION = 0.9.9.6
 modver = `php -r 'error_reporting(0);include "addons/xoops_version.php";echo "$$modversion['version']";'`
-distdir = xoops-mod-$(NAME)-$(modver)
+release = `date "+%Y%m%d%H%M"`
+distdir = xoops-mod-$(NAME)-$(modver)-$(release)
 
 fetch:
 	@echo Downloading the $(NAME)-$(VERSION).zip ...; \
@@ -25,6 +26,7 @@ dist: fetch
 		for i in ../patches/*;do \
 		patch -s -p1  < $$i; \
 		done; \
+		find -name ".svn" |xargs rm -rf; \
 		cd ..; \
 		tar -zcf $(distdir).tar.gz $(distdir); \
 		rm -rf $(distdir); \

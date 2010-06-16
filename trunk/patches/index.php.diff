@@ -1,5 +1,5 @@
 --- distfiles/index.php	2009-04-18 12:32:30.000000000 +0800
-+++ ./index.php	2010-06-16 16:11:22.378003580 +0800
++++ ./index.php	2010-06-16 19:11:33.260259660 +0800
 @@ -5,7 +5,10 @@
     in.  Mostly what it does is check the user permissions
     to see what they have access to.

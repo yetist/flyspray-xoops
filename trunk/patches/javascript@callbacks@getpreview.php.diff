@@ -1,0 +1,22 @@
+--- distfiles/javascript/callbacks/getpreview.php	2007-02-04 08:11:48.000000000 +0800
++++ ./javascript/callbacks/getpreview.php	2010-06-16 19:57:33.047481408 +0800
+@@ -4,6 +4,7 @@
+     for users, and returns them in an ordered list.
+ */
+ 
++include_once "../../../../mainfile.php";
+ define('IN_FS', true);
+ 
+ header('Content-type: text/html; charset=utf-8');
+@@ -11,9 +12,8 @@
+ $webdir = dirname(dirname(dirname(htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'utf-8'))));
+ require_once('../../header.php');
+ 
+-if (Cookie::has('flyspray_userid') && Cookie::has('flyspray_passhash')) {
+-    $user = new User(Cookie::val('flyspray_userid'));
+-    $user->check_account_ok();
++if (is_object($xoopsUser)) {
++    $user = new User($xoopsUser->getVar('uid'));
+     $user->save_search();
+ }
+ 
